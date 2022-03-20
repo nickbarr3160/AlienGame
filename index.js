@@ -28,7 +28,7 @@ function jump ()
     {
         setTimeout (function()
         {
-            smallBox.src = "/explosion.gif" 
+            smallBox.src = "explosion.gif" 
         },750) 
     }
 }
