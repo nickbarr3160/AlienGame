@@ -41,26 +41,21 @@ function noJump ()
     }
 }
 
- function walkingStep ()
-{
+ function walkingStep(){
     if (steps > 30)
     {
         steps = 0
     }
-
     alien.src = "./alien 2/alienrwalk" + steps + ".gif"
 }
 
 
         
-        function rightWalk ()
-        {
-                walkingStep()
-           if (alien.style.top == "200px")
-            
+        function rightWalk (){
+           walkingStep()
+           if (alien.style.top == "200px") 
             {
                 steps++
-              
             } 
             else if (alien.style.top != "200px")
             {
@@ -70,65 +65,51 @@ function noJump ()
 
                if (alien.style.left == screenEnd)
                {
-                  leftTimer = setInterval (moveLeft, 20)
-                  clearInterval(rightTimer)
-                  rTimer = null
+                leftTimer = setInterval (moveLeft, 20)
+                clearInterval(rightTimer)
+                rTimer = null
                }
 
                if (alien.style.left == parseInt(smallBox.style.left) + -60 + "px" && jumpTimer == null)
                {
                    boxTimer = setInterval(kickBox,20)
-                   setTimeout (function()
-                   {
-                            clearInterval(boxTimer)
+                   setTimeout (function(){
+                        clearInterval(boxTimer)
                    },200)
                 }                   
                }
                
-               function kickBox ()
-                {
+               function kickBox (){
                    smallBox.style.left = parseInt(smallBox.style.left)+ 15 + "px"
                 }   
                    
                
         
- function walkingStepTwo ()
-        {
-           
-
+ function walkingStepTwo (){
             if (steps > 30)
             {
                 steps = 0
             }
-
-
             alien.src = "./alien 2/alienlwalk" + steps + ".gif"
         }
 
-        function leftWalk ()
-        {
+        function leftWalk (){
             walkingStepTwo ()
             if (alien.style.top == "200px")
-             
                 {
                  steps++
                 } 
-               
              else if (alien.style.top != "200px")
                 {
                  steps
                 }
-                
                 alien.style.left = parseInt(alien.style.left)+ -1 + "px"
-                
                 if (alien.style.left <= "-10px")
                 {
                    rTimer = setInterval (rightWalk, 20)
                    clearInterval(lTimer)
                    lTimer = null
                 }
-
-
 
                 if(alien.style.left == parseInt(bigBox.style.left)+ 35 + "px" )
                 {
@@ -141,14 +122,10 @@ function noJump ()
             
 
 
-        function jumpStop ()
-        {
+        function jumpStop (){
             if (foggle == true)
             {
                clearInterval(jumpTimer)
-               
-           
-
                
                 jumpTimer = setInterval(noJump, 100)
                 foggle = null
@@ -170,38 +147,25 @@ function noJump ()
         function makeJump (keyBeingPressed)
         {
             if(keyBeingPressed.which == 38)
-            
             {   
-               
                     if (jumpTimer == null)
                     {
                         jumpTimer = setInterval(jump, 100)
                         foggle = true                    
                     }
                 setTimeout(jumpStop, 500)
-            
-               
-               
                 console.log(alien.style.top)
             }
             
            else if (keyBeingPressed.which == 39)
-    
             {
-
-                
                 if (rTimer == null)
-                {  
-                    
+                {     
                  rTimer = setInterval(rightWalk, 20)
-                 
-                
                  clearInterval(lTimer)
                  lTimer = null
                  
                 }
-                        
-
             }
                  
                 
@@ -211,17 +175,11 @@ function noJump ()
             
             else if (keyBeingPressed.which == 37)
             {
-                
                 if (lTimer == null)
-
-
                 {
                     lTimer = setInterval(leftWalk, 20)
                     clearInterval(rTimer)
-                    rTimer = null
-
-                    
-                    
+                    rTimer = null 
                 }
 
                 
